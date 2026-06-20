@@ -19,7 +19,7 @@ var desks = new List<Desk>
 };
 
 // 2️⃣ RESTful Endpoints
-app.MapGet("/api/desks", () => Results.Ok(desks));
+app.MapGet("/", () => "CNX-Space API is running perfectly! 🍌🚀");
 
 app.MapPost("/api/book/{id}", (string id) => 
 {
