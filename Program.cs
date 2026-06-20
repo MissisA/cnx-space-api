@@ -37,6 +37,10 @@ app.MapPost("/api/book/{id}", (string id) =>
     return Results.Ok(new { message = $"จองโต๊ะ {desk.Name} สำเร็จแล้ว!" });
 });
 
+// สั่งให้ระบบเช็กพอร์ตจากคลาวด์ ถ้าไม่มีค่อยใช้พอร์ตเริ่มต้น
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5112";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
 app.Run();
 
 // 🚨 ย้ายมาอยู่บรรทัดสุดท้ายตรงนี้แล้ว! (Type declarations must be at the end)
